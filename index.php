@@ -1,7 +1,5 @@
 <?php
 require_once('bdd.php');
-
-
 $sql = "SELECT id, title, start, end, color FROM events ";
 
 $req = $bdd->prepare($sql);
@@ -22,7 +20,7 @@ $events = $req->fetchAll();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bare - Start Bootstrap Template</title>
+    <title>Location</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +36,7 @@ $events = $req->fetchAll();
         /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     }
 	#calendar {
-		max-width: 800px;
+		max-width: 700px;
 	}
 	.col-centered{
 		float: none;
@@ -57,10 +55,9 @@ $events = $req->fetchAll();
 
 <body>
 
-    <!-- Navigation -->
+    
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -68,28 +65,30 @@ $events = $req->fetchAll();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Free Calendar</a>
+                <a class="navbar-brand" href="http://localhost/FullCalendar-BS3-PHP-MySQL/index.php">Calendrier</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Menu</a>
+										<li>
+                        <a href="http://localhost/FullCalendar-BS3-PHP-MySQL/locataire.php">Locataire</a>
+                    </li>
+										<li>
+                        <a href="http://localhost/FullCalendar-BS3-PHP-MySQL/locataire.php">Avance</a>
+                    </li>
+										<li>
+                        <a href="http://localhost/FullCalendar-BS3-PHP-MySQL/locataire.php">Paiement</a>
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
-
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>FullCalendar BS3 PHP MySQL</h1>
-                <p class="lead">Complete with pre-defined file paths that you won't have to change!</p>
+            <div class="col-lg-12">
+                <!--<h1>FullCalendar BS3 PHP MySQL</h1>
+                <p class="lead">Complete with pre-defined file paths that you won't have to change!</p>-->
                 <div id="calendar" class="col-centered">
                 </div>
             </div>
@@ -105,49 +104,48 @@ $events = $req->fetchAll();
 			
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Add Event</h4>
+				<h4 class="modal-title" id="myModalLabel">Ajouter Location</h4>
 			  </div>
 			  <div class="modal-body">
 				
 				  <div class="form-group">
-					<label for="title" class="col-sm-2 control-label">Title</label>
+					<label for="title" class="col-sm-2 control-label">Locataire</label>
 					<div class="col-sm-10">
 					  <input type="text" name="title" class="form-control" id="title" placeholder="Title">
 					</div>
 				  </div>
 				  <div class="form-group">
-					<label for="color" class="col-sm-2 control-label">Color</label>
+					<label for="color" class="col-sm-2 control-label">Couleur</label>
 					<div class="col-sm-10">
 					  <select name="color" class="form-control" id="color">
-						  <option value="">Choose</option>
-						  <option style="color:#0071c5;" value="#0071c5">&#9724; Dark blue</option>
+						  <option value="">Choisir</option>
+						  <option style="color:#0071c5;" value="#0071c5">&#9724; Blue Fobcé</option>
 						  <option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquoise</option>
-						  <option style="color:#008000;" value="#008000">&#9724; Green</option>						  
-						  <option style="color:#FFD700;" value="#FFD700">&#9724; Yellow</option>
-						  <option style="color:#FF8C00;" value="#FF8C00">&#9724; Orange</option>
-						  <option style="color:#FF0000;" value="#FF0000">&#9724; Red</option>
-						  <option style="color:#000;" value="#000">&#9724; Black</option>
-						  
+						  <option style="color:#008000;" value="#008000">&#9724; Vert</option>						  
+						  <option style="color:#FFD700;" value="#FFD700">&#9724; Jaune</option>
+						  <option style="color:#FF8C00;" value="#FF8C00">&#9724; Orangé</option>
+						  <option style="color:#FF0000;" value="#FF0000">&#9724; Rouge</option>
+						  <option style="color:#000;" value="#000">&#9724; Noire</option>
 						</select>
 					</div>
 				  </div>
 				  <div class="form-group">
-					<label for="start" class="col-sm-2 control-label">Start date</label>
+					<label for="start" class="col-sm-2 control-label">Date de Début</label>
 					<div class="col-sm-10">
-					  <input type="text" name="start" class="form-control" id="start" readonly>
+					  <input type="text" name="start" class="form-control" id="start">
 					</div>
 				  </div>
 				  <div class="form-group">
-					<label for="end" class="col-sm-2 control-label">End date</label>
+					<label for="end" class="col-sm-2 control-label">Date de Fin</label>
 					<div class="col-sm-10">
-					  <input type="text" name="end" class="form-control" id="end" readonly>
+					  <input type="text" name="end" class="form-control" id="end">
 					</div>
 				  </div>
 				
 			  </div>
 			  <div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="submit" class="btn btn-primary">Save changes</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+				<button type="submit" class="btn btn-primary">Ajouter Location</button>
 			  </div>
 			</form>
 			</div>
@@ -163,7 +161,7 @@ $events = $req->fetchAll();
 			<form class="form-horizontal" method="POST" action="editEventTitle.php">
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Edit Event</h4>
+				<h4 class="modal-title" id="myModalLabel">Modifier Location</h4>
 			  </div>
 			  <div class="modal-body">
 				
@@ -177,33 +175,29 @@ $events = $req->fetchAll();
 					<label for="color" class="col-sm-2 control-label">Color</label>
 					<div class="col-sm-10">
 					  <select name="color" class="form-control" id="color">
-						  <option value="">Choose</option>
-						  <option style="color:#0071c5;" value="#0071c5">&#9724; Dark blue</option>
+						<option value="">Choisir</option>
+						  <option style="color:#0071c5;" value="#0071c5">&#9724; Blue Fobcé</option>
 						  <option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquoise</option>
-						  <option style="color:#008000;" value="#008000">&#9724; Green</option>						  
-						  <option style="color:#FFD700;" value="#FFD700">&#9724; Yellow</option>
-						  <option style="color:#FF8C00;" value="#FF8C00">&#9724; Orange</option>
-						  <option style="color:#FF0000;" value="#FF0000">&#9724; Red</option>
-						  <option style="color:#000;" value="#000">&#9724; Black</option>
-						  
+						  <option style="color:#008000;" value="#008000">&#9724; Vert</option>						  
+						  <option style="color:#FFD700;" value="#FFD700">&#9724; Jaune</option>
+						  <option style="color:#FF8C00;" value="#FF8C00">&#9724; Orangé</option>
+						  <option style="color:#FF0000;" value="#FF0000">&#9724; Rouge</option>
+						  <option style="color:#000;" value="#000">&#9724; Noire</option>
 						</select>
 					</div>
 				  </div>
 				    <div class="form-group"> 
 						<div class="col-sm-offset-2 col-sm-10">
 						  <div class="checkbox">
-							<label class="text-danger"><input type="checkbox"  name="delete"> Delete event</label>
+							<label class="text-danger"><input type="checkbox"  name="delete"> Effacer Location</label>
 						  </div>
 						</div>
 					</div>
-				  
 				  <input type="hidden" name="id" class="form-control" id="id">
-				
-				
 			  </div>
 			  <div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="submit" class="btn btn-primary">Save changes</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+				<button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
 			  </div>
 			</form>
 			</div>
@@ -222,18 +216,20 @@ $events = $req->fetchAll();
 	<!-- FullCalendar -->
 	<script src='js/moment.min.js'></script>
 	<script src='js/fullcalendar.min.js'></script>
+	<script src='js/lang-all.js'></script>
 	
 	<script>
 
 	$(document).ready(function() {
 		
 		$('#calendar').fullCalendar({
+			lang:'fr',
 			header: {
 				left: 'prev,next today',
 				center: 'title',
-				right: 'month,basicWeek,basicDay'
+				right: 'month,agendaWeek,agendaDay'
 			},
-			defaultDate: '2016-01-12',
+			//defaultDate: '2016-01-12',
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
 			selectable: true,
@@ -310,9 +306,9 @@ $events = $req->fetchAll();
 			 data: {Event:Event},
 			 success: function(rep) {
 					if(rep == 'OK'){
-						alert('Saved');
+						alert('Enregistré!');
 					}else{
-						alert('Could not be saved. try again.'); 
+						alert('Erreur, Veuillez Réessayer.'); 
 					}
 				}
 			});

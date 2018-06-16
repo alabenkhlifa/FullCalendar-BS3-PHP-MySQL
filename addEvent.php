@@ -11,17 +11,20 @@ if (isset($_POST['title']) && isset($_POST['start']) && isset($_POST['end']) && 
 	$color = $_POST['color'];
 
 	$sql = "INSERT INTO events(title, start, end, color) values ('$title', '$start', '$end', '$color')";
+	$sql2 = "INSERT INTO locataire(nom) values ('$title')";
 	//$req = $bdd->prepare($sql);
 	//$req->execute();
 	
 	echo $sql;
 	
 	$query = $bdd->prepare( $sql );
+	$query2 = $bdd->prepare( $sql2 );
 	if ($query == false) {
 	 print_r($bdd->errorInfo());
 	 die ('Erreur prepare');
 	}
 	$sth = $query->execute();
+	$sth2 = $query2->execute();
 	if ($sth == false) {
 	 print_r($query->errorInfo());
 	 die ('Erreur execute');
